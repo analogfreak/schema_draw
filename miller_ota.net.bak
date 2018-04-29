@@ -1,0 +1,33 @@
+* Schematics Netlist *
+.include "../Models/MOSIS.txt"
+
+IIS1 ndd nbias_tailCS   DC  0        
+
+
+VVS1 ndd nss   DC  0        
+
+
+VVS2 nss 0   DC  0        
+
+
+VVS3 inp_p nss   DC  0        
+
+
+VVS4 inp_n nss   DC  0        
+
+
+MXM3a out_diff_p pbias_diff ndd ndd tsmc0p18pmos W=0.27u L=0.18u
+MXM3b out_diff_n pbias_diff ndd ndd tsmc0p18pmos W=0.27u L=0.18u
+MX_M4a out_p out_diff_p nss nss tsmc0p35nmos W=0.6u L=0.4u
+MX_M4b out_n out_diff_n nss nss tsmc0p35nmos W=0.6u L=0.4u
+MX_M5a out_p pbias_2ndStage ndd ndd tsmc0p18pmos W=0.27u L=0.18u
+MX_M5b out_n pbias_2ndStage ndd ndd tsmc0p18pmos W=0.27u L=0.18u
+MX_inpPair_n out_diff_n inp_n n_tailCS nss tsmc0p35nmos W=0.6u L=0.4u
+MX_inpPair_p out_diff_p inp_p n_tailCS nss tsmc0p35nmos W=0.6u L=0.4u
+MX_tailCS n_tailCS nbias_tailCS nss nss tsmc0p35nmos W=0.6u L=0.4u
+MX_tail_diode nbias_tailCS nbias_tailCS nss nss tsmc0p35nmos W=0.6u L=0.4u
+
+
+.end
+
+
